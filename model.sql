@@ -61,11 +61,24 @@ CREATE TABLE disciplina(
 id_disciplina INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 id_modulo INT NOT NULL,
 nome VARCHAR(30) NOT NULL
-
 );
 
 CREATE TABLE turno(
 id_turno INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 periodo VARCHAR(12) NOT NULL
 );
+
+CREATE TABLE alunos_has_turmas(
+alunos_id_aluno INT NOT NULL,
+turmas_id_turma INT NOT NULL
+);
+
+ALTER TABLE alunos_has_turmas
+ADD CONSTRAINT fk_alunos_has_turmas__alunos FOREIGN KEY (alunos_id_aluno) REFERENCES alunos (id_aluno),
+ADD CONSTRAINT fk_alunos_has_turmas__turmas FOREIGN KEY (turmas_id_turma) REFERENCES turmas (id_turma);
+
+
+
+
+
 
