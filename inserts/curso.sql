@@ -14,11 +14,3 @@ INSERT INTO curso(id_curso, nome_curso, id_disciplina, carga_horaria,  data_inic
 VALUES ('7','Office 365','7', '360','2024/02/08','2024/09/08');
 INSERT INTO curso(id_curso, nome_curso, id_disciplina, carga_horaria,  data_inicio, data_fim)
 VALUES ('8','Python','8', '360','2024/01/07','2024/08/07');
- 
- 
- 
- 
- 
- 
- 
- 
