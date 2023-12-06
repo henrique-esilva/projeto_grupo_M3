@@ -79,12 +79,8 @@ ADD COLUMN hora_inicio TIME;
 ALTER TABLE turno
 ADD COLUMN hora_termino TIME;
 
-INSERT INTO curso(id_curso, nome_curso, id_disciplina, carga_horaria,  data_inicio, data_fim) VALUES
-(NULL,'Análise de Dados',1, '360','2024-01-07','2024-08-07'),
-(NULL,'Excel','2', '360','2024-01-07','2024-08-07'),
-(NULL,'Power BI','3', '360','2024-01-07','2024-08-07'),
-(NULL,'Análise e desenvolvimento de sistemas','4', '360','2024-01-07','2024-08-07'),
-(NULL,'Banco de Dados(SQL)','5', '360','2024-02-08','2024-09-08'),
-(NULL,'Desenvolvedor Beck-end','6', '360','2024-02-08','2024-09-08'),
-(NULL,'Office 365','7', '360','2024-02-08','2024-09-08'),
-(NULL,'Python','8', '360','2024-01-07','2024-08-07');
+ALTER TABLE modulo ADD CONSTRAINT fk_modulo_curso FOREIGN KEY (id_curso) REFERENCES curso(id_curso);
+ALTER TABLE modulo ADD CONSTRAINT fk_modulo_turmas FOREIGN KEY (id_turma) REFERENCES turmas(id_turma);
+ALTER TABLE turmas ADD CONSTRAINT fk_turmas_turno FOREIGN KEY (id_turno) REFERENCES turno(id_turno);
+ALTER TABLE disciplina ADD CONSTRAINT fk_disciplina_modulo FOREIGN KEY (id_modulo) REFERENCES modulo(id_modulo);
+ALTER TABLE disciplina ADD CONSTRAINT fk_disciplina_facilitadores FOREIGN KEY (id_facilitador) REFERENCES facilitadores(id_facilitador);
