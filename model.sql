@@ -30,7 +30,7 @@ id_modulo INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR (20) NOT NULL,
 carga_horaria INT NOT NULL,
 id_curso INT NOT NULL,
-id_turma INT NOT NULL
+id_turma INT
 );
 
 CREATE TABLE facilitadores(
