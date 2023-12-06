@@ -75,7 +75,16 @@ turmas_id_turma INT NOT NULL
 
 ALTER TABLE alunos_has_turmas
 ADD CONSTRAINT fk_alunos_has_turmas__alunos FOREIGN KEY (alunos_id_aluno) REFERENCES alunos (id_aluno),
-ADD CONSTRAINT fk_alunos_has_turmas__turmas FOREIGN KEY (turmas_id_turma) REFERENCES turmas (id_turma);
+ADD CONSTRAINT fk_alunos_has_turmas__turmas FOREIGN KEY (turmas_id_turma) REFERENCES turmas (id_turma);ALTER TABLE turno
+
+ALTER TABLE turno  
+ADD COLUMN hora_inicio TIME;
+
+ALTER TABLE turno
+ADD COLUMN hora_termino TIME;
+
+
+
 
 
 
