@@ -21,7 +21,6 @@ id_curso INT PRIMARY KEY AUTO_INCREMENT,
 nome_curso VARCHAR (64) NOT NULL,
 id_disciplina INT (10) NOT NULL,
 carga_horaria VARCHAR (10) NOT NULL,
-turno VARCHAR (20) NOT NULL,
 data_inicio DATE NOT NULL,
 data_fim DATE NOT NULL
 );
