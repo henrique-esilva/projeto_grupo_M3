@@ -1,4 +1,4 @@
-INSERT INTO curso(id_curso, nome_curso, id_disciplina, carga_horaria,  data_inicio, data_fim)
+INSERT INTO curso(id_curso, nome_curso, id_disciplina, carga_horaria,  data_inicio, data_fim) VALUES
 (1,'Análise de Dados',1, '360','2024-01-07','2024-08-07'),
 (2,'Excel','2', '360','2024-01-07','2024-08-07'),
 (3,'Power BI','3', '360','2024-01-07','2024-08-07'),
