@@ -64,8 +64,8 @@ id_turno INT NOT NULL
 
 CREATE TABLE presenca (
 id_presenca INT PRIMARY KEY AUTO_INCREMENT,
-id_turma INT,-- NOT NULL,
-id_aluno INT,-- NOT NULL,
+id_turma INT,
+id_aluno INT,
 tipo VARCHAR(3),
 horario TIME,
 dia DATE
