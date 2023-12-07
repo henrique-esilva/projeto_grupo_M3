@@ -82,8 +82,9 @@ ALTER TABLE alunos
 ADD COLUMN id_curso INT;
 
 ALTER TABLE modulo ADD CONSTRAINT fk_modulo_curso FOREIGN KEY (id_curso) REFERENCES curso(id_curso);
-ALTER TABLE modulo ADD CONSTRAINT fk_modulo_turmas FOREIGN KEY (id_turma) REFERENCES turmas(id_turma);
+-- ALTER TABLE modulo ADD CONSTRAINT fk_modulo_turmas FOREIGN KEY (id_turma) REFERENCES turmas(id_turma);
 ALTER TABLE turmas ADD CONSTRAINT fk_turmas_turno FOREIGN KEY (id_turno) REFERENCES turno(id_turno);
+ALTER TABLE turmas ADD CONSTRAINT fk_turmas_curso FOREIGN KEY (id_curso) REFERENCES curso(id_curso);
 ALTER TABLE disciplina ADD CONSTRAINT fk_disciplina_modulo FOREIGN KEY (id_modulo) REFERENCES modulo(id_modulo);
 ALTER TABLE disciplina ADD CONSTRAINT fk_disciplina_facilitadores FOREIGN KEY (id_facilitador) REFERENCES facilitadores(id_facilitador);
 ALTER TABLE alunos ADD CONSTRAINT fk_alunos_turmas FOREIGN KEY (id_curso) REFERENCES turmas(id_turma);
