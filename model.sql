@@ -13,7 +13,10 @@ cpf VARCHAR(14) NOT NULL,
 endereco VARCHAR(150) NOT NULL,
 email VARCHAR(100) NOT NULL,
 telefone VARCHAR(17) NOT NULL,
-escolaridade VARCHAR(30) NOT NULL
+escolaridade VARCHAR(30) NOT NULL,
+log_in TIME,
+log_out TIME,
+id_turma INT
 );
 
 CREATE TABLE curso(
@@ -60,7 +63,15 @@ dia VARCHAR (20) NOT NULL,
 id_turno INT NOT NULL
 );
 
-drop table alunos_has_turmas;
+CREATE TABLE presenca (
+id_presenca INT PRIMARY KEY AUTO_INCREMENT,
+id_turma INT NOT NULL,
+id_aluno INT NOT NULL,
+tipo VARCHAR(3),
+horario TIME,
+dia DATE
+);
+
 CREATE TABLE alunos_has_turmas(
   id_aluno INT NOT NULL,
   id_turma INT NOT NULL
@@ -78,17 +89,30 @@ id_turno INT PRIMARY KEY AUTO_INCREMENT,
 periodo VARCHAR(12) NOT NULL
 );
 
-ALTER TABLE alunos
-ADD COLUMN id_curso INT;
+ALTER TABLE modulo ADD CONSTRAINT fk_modulo_turmas FOREIGN KEY (id_turma) REFERENCES turmas(id_turma);
+ALTER TABLE alunos ADD CONSTRAINT fk_alunos_turmas FOREIGN KEY (id_turma) REFERENCES turmas(id_turma);
+ALTER TABLE disciplina ADD CONSTRAINT fk_disciplina_modulo FOREIGN KEY (id_modulo) REFERENCES modulo(id_modulo);
 
-ALTER TABLE modulo ADD CONSTRAINT fk_modulo_curso FOREIGN KEY (id_curso) REFERENCES curso(id_curso);
--- ALTER TABLE modulo ADD CONSTRAINT fk_modulo_turmas FOREIGN KEY (id_turma) REFERENCES turmas(id_turma);
 ALTER TABLE turmas ADD CONSTRAINT fk_turmas_turno FOREIGN KEY (id_turno) REFERENCES turno(id_turno);
 ALTER TABLE turmas ADD CONSTRAINT fk_turmas_curso FOREIGN KEY (id_curso) REFERENCES curso(id_curso);
-ALTER TABLE disciplina ADD CONSTRAINT fk_disciplina_modulo FOREIGN KEY (id_modulo) REFERENCES modulo(id_modulo);
 ALTER TABLE disciplina ADD CONSTRAINT fk_disciplina_facilitadores FOREIGN KEY (id_facilitador) REFERENCES facilitadores(id_facilitador);
-ALTER TABLE alunos ADD CONSTRAINT fk_alunos_turmas FOREIGN KEY (id_curso) REFERENCES turmas(id_turma);
-/*ALTER TABLE alunos_has_turmas
+
+/* não remover o conteúdo deste comentário
+ALTER TABLE modulo ADD CONSTRAINT fk_modulo_curso FOREIGN KEY (id_curso) REFERENCES curso(id_curso);
+ALTER TABLE alunos_has_turmas
   ADD CONSTRAINT fk_alunos_has_turmas__alunos FOREIGN KEY (id_aluno) REFERENCES alunos (id_aluno),
   ADD CONSTRAINT fk_alunos_has_turmas__turmas FOREIGN KEY (id_turma) REFERENCES turmas (id_turma);
 */
+
+DELIMITER //
+CREATE DEFINER='root'@'localhost' TRIGGER gera_log_alunos BEFORE UPDATE ON alunos FOR EACH ROW BEGIN
+IF (NEW.log_in != OLD.log_in) THEN
+	INSERT INTO alpha.presenca(id_turma, id_aluno, tipo, horario, dia)
+	VALUES (alunos.id_turma, alunos.id_aluno, 'in', NOW(), NOW());
+END IF;
+IF (NEW.log_out != OLD.log_out) THEN
+	INSERT INTO alpha.presenca(id_turma, id_aluno, tipo, horario, dia)
+	VALUES (alunos.id_turma, alunos.id_aluno, 'out', NOW(), NOW());
+END IF;
+END //
+DELIMITER ;
