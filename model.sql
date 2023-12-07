@@ -109,16 +109,12 @@ ALTER TABLE alunos_has_turmas
 DELIMITER //
 CREATE DEFINER='root'@'localhost' TRIGGER gera_log_alunos BEFORE UPDATE ON alunos FOR EACH ROW BEGIN
 IF (NEW.log_in != OLD.log_in) THEN
-	set @turma=OLD.id_turma;
-    set @aluno=OLD.id_aluno;
 	INSERT INTO presenca(id_presenca, id_turma, id_aluno, tipo, horario, dia)
 	VALUES (NULL, OLD.id_turma, OLD.id_aluno, 'in', NOW(), NOW());
 END IF;
 IF (NEW.log_out != OLD.log_out) THEN
-	set @turma=OLD.id_turma;
-    set @aluno=OLD.id_aluno;
 	INSERT INTO presenca(id_turma, id_aluno, tipo, horario, dia)
-	VALUES (OLD.id_turma, OLD.id_aluno, 'out', NOW(), NOW());
+	VALUES (NULL, OLD.id_turma, OLD.id_aluno, 'out', NOW(), NOW());
 END IF;
 END //
 DELIMITER ;
