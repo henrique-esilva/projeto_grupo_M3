@@ -14,9 +14,9 @@ endereco VARCHAR(150) NOT NULL,
 email VARCHAR(100) NOT NULL,
 telefone VARCHAR(17) NOT NULL,
 escolaridade VARCHAR(30) NOT NULL,
+id_turma INT,
 log_in TIME,
-log_out TIME,
-id_turma INT
+log_out TIME
 );
 
 CREATE TABLE curso(
@@ -46,14 +46,9 @@ CREATE TABLE turmas(
 id_turma INT PRIMARY KEY AUTO_INCREMENT,
 id_curso INT NOT NULL,
 sala VARCHAR(10) NOT NULL,
-nivel VARCHAR(20) NOT NULL,
-data_inicio DATE NOT NULL,
-data_fim DATE NOT NULL,
-horario_inicio TIME NOT NULL,
-horario_fim TIME NOT NULL,
-periodo VARCHAR(12) NOT NULL,
-dia VARCHAR (20) NOT NULL,
-id_turno INT NOT NULL
+id_turno INT NOT NULL,
+data_inicio DATE,
+data_fim DATE
 );
 
 CREATE TABLE presenca (
@@ -86,14 +81,13 @@ hora_termino TIME
 
 
 -- ALTER TABLE modulo ADD CONSTRAINT fk_modulo_turmas FOREIGN KEY (id_turma) REFERENCES turmas(id_turma);
-ALTER TABLE alunos ADD CONSTRAINT fk_alunos_turmas FOREIGN KEY (id_turma) REFERENCES turmas(id_turma);
-
 
 ALTER TABLE disciplina ADD CONSTRAINT fk_disciplina_modulo FOREIGN KEY (id_modulo) REFERENCES modulo(id_modulo);
-ALTER TABLE turmas ADD CONSTRAINT fk_turmas_turno FOREIGN KEY (id_turno) REFERENCES turno(id_turno);
-ALTER TABLE turmas ADD CONSTRAINT fk_turmas_curso FOREIGN KEY (id_curso) REFERENCES curso(id_curso);
-ALTER TABLE disciplina ADD CONSTRAINT fk_disciplina_facilitadores FOREIGN KEY (id_facilitador) REFERENCES facilitadores(id_facilitador);
 ALTER TABLE modulo ADD CONSTRAINT fk_modulo_curso FOREIGN KEY (id_curso) REFERENCES curso(id_curso);
+ALTER TABLE turmas ADD CONSTRAINT fk_turmas_curso FOREIGN KEY (id_curso) REFERENCES curso(id_curso);
+ALTER TABLE alunos ADD CONSTRAINT fk_alunos_turmas FOREIGN KEY (id_turma) REFERENCES turmas(id_turma);
+ALTER TABLE turmas ADD CONSTRAINT fk_turmas_turno FOREIGN KEY (id_turno) REFERENCES turno(id_turno);
+#ALTER TABLE disciplina ADD CONSTRAINT fk_disciplina_facilitadores FOREIGN KEY (id_facilitador) REFERENCES facilitadores(id_facilitador);
 
 /*
 -- relacionamento muitos para muitos - provável que não seja mais usado
