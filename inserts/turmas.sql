@@ -1,24 +1,23 @@
-INSERT INTO turmas (id_turma, id_curso, id_aluno, sala, id_turno) VALUES ('1', '1', '0', '101', '1');
-INSERT INTO turmas (id_turma, id_curso, id_aluno, sala, id_turno) VALUES ('2', '1', '0', '102', '2');
-INSERT INTO turmas (id_turma, id_curso, id_aluno, sala, id_turno) VALUES ('3', '1', '0', '103', '3')
-INSERT INTO turmas (id_turma, id_curso, id_aluno, sala, id_turno) VALUES ('4', '2', '0', '201', '1');
-INSERT INTO turmas (id_turma, id_curso, id_aluno, sala, id_turno) VALUES ('5', '2', '0', '202', '2');
-INSERT INTO turmas (id_turma, id_curso, id_aluno, sala, id_turno) VALUES ('6', '2', '0', '203', '3');
-INSERT INTO turmas (id_turma, id_curso, id_aluno, sala, id_turno) VALUES ('7', '3', '0', '301', '1');
-INSERT INTO turmas (id_turma, id_curso, id_aluno, sala, id_turno) VALUES ('8', '3', '0', '302', '2');
-INSERT INTO turmas (id_turma, id_curso, id_aluno, sala, id_turno) VALUES ('9', '3', '0', '303', '3');
-INSERT INTO turmas (id_turma, id_curso, id_aluno, sala, id_turno) VALUES ('10', '4', '0', '305', '1');
-INSERT INTO turmas (id_turma, id_curso, id_aluno, sala, id_turno) VALUES ('11', '4', '0', '306', '2');
-INSERT INTO turmas (id_turma, id_curso, id_aluno, sala, id_turno) VALUES ('12', '4', '0', '307', '3');
-INSERT INTO turmas (id_turma, id_curso, id_aluno, sala, id_turno) VALUES ('13', '5', '0', '405', '1');
-INSERT INTO turmas (id_turma, id_curso, id_aluno, sala, id_turno) VALUES ('14', '5', '0', '406', '2');
-INSERT INTO turmas (id_turma, id_curso, id_aluno, sala, id_turno) VALUES ('15', '5', '0', '407', '3');
-INSERT INTO turmas (id_turma, id_curso, id_aluno, sala, id_turno) VALUES ('16', '6', '0', '401', '1');
-INSERT INTO turmas (id_turma, id_curso, id_aluno, sala, id_turno) VALUES ('17', '6', '0', '402', '2');
-INSERT INTO turmas (id_turma, id_curso, id_aluno, sala, id_turno) VALUES ('18', '6', '0', '403', '3');
-INSERT INTO turmas (id_turma, id_curso, id_aluno, sala, id_turno) VALUES ('19', '7', '0', '105', '1');
-INSERT INTO turmas (id_turma, id_curso, id_aluno, sala, id_turno) VALUES ('20', '7', '0', '106', '2');
-INSERT INTO turmas (id_turma, id_curso, id_aluno, sala, id_turno) VALUES ('21', '7', '0', '107', '3');
-INSERT INTO turmas (id_turma, id_curso, id_aluno, sala, id_turno) VALUES ('22', '8', '0', '205', '1');
-INSERT INTO turmas (id_turma, id_curso, id_aluno, sala, id_turno) VALUES ('23', '8', '0', '206', '2');
-INSERT INTO turmas (id_turma, id_curso, id_aluno, sala, id_turno) VALUES ('24', '8', '0', '207', '3');
+INSERT INTO turmas (id_turma, id_curso, id_aluno, sala, id_turno) 
+  VALUES
+ ('1', '1', '0', '101', '1'),
+ ('2', '1', '0', '102', '2'),
+ ('3', '1', '0', '103', '3'),
+ ('4', '2', '0', '301', '1'),
+ ('5', '2', '0', '302', '2'),
+ ('6', '2', '0', '303', '3'),
+ ('7', '3', '0', '305', '1'),
+ ('8', '3', '0', '306', '2'),
+ ('9', '3', '0', '307', '3'),
+ ('10', '4', '0', '405', '1'),
+ ('11', '4', '0', '406', '2'),
+ ('12', '4', '0', '407', '3'),
+ ('13', '5', '0', '401', '1'),
+ ('14', '5', '0', '402', '2'),
+ ('15', '5', '0', '403', '3'),
+ ('16', '6', '0', '105', '1'),
+ ('17', '6', '0', '106', '2'),
+ ('18', '6', '0', '107', '3'),
+ ('19', '7', '0', '205', '1'),
+ ('20', '7', '0', '206', '2'),
+ ('21', '7', '0', '207', '3');
