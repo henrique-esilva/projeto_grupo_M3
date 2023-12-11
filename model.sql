@@ -67,7 +67,7 @@ CREATE TABLE alunos_has_turmas(
 
 CREATE TABLE disciplina(
 id_disciplina INT PRIMARY KEY AUTO_INCREMENT,
-id_facilitador INT NOT NULL,
+#id_facilitador INT NOT NULL,
 id_modulo INT NOT NULL,
 nome VARCHAR(30) NOT NULL
 );
