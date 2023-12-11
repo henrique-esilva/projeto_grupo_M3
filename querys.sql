@@ -24,4 +24,6 @@ SELECT turmas.id_turma, modulo.nome as 'módulo' FROM turmas
 INNER JOIN curso ON curso.id_curso=turmas.id_curso
 INNER JOIN modulo ON modulo.id_curso=curso.id_curso ORDER BY turmas.id_turma;
 -- relacionamento entre módulos e nomes dos cursos
-SELECT nome_curso AS 'curso', modulo.nome AS 'módulo' FROM modulo INNER JOIN curso ON curso.id_curso=modulo.id_curso;
+SELECT nome_curso AS 'curso', modulo.nome AS 'módulo', modulo.id_modulo FROM modulo INNER JOIN curso ON curso.id_curso=modulo.id_curso;
+-- nome do curso, módulo e disciplina
+SELECT nome_curso AS 'curso', modulo.nome AS 'módulo', disciplina.nome AS 'disciplina' FROM curso INNER JOIN modulo ON modulo.id_curso=curso.id_curso INNER JOIN disciplina ON disciplina.id_modulo=modulo.id_modulo;
