@@ -1,3 +1,5 @@
+USE alpha;
+
 -- pesquisas simples
 SELECT * FROM turno;
 SELECT * FROM turmas;
@@ -16,3 +18,7 @@ SELECT COUNT(id_aluno) AS 'N alunos', turmas.id_turma FROM alunos INNER JOIN tur
 SELECT COUNT(turmas.id_turma) AS 'n de turmas', curso.nome_curso FROM turmas INNER JOIN curso ON turmas.id_curso = curso.id_curso GROUP BY curso.nome_curso;
 -- quantidade de alunos por curso
 SELECT count(id_aluno) AS 'alunos', nome_curso FROM curso INNER JOIN turmas ON turmas.id_curso=curso.id_curso INNER JOIN alunos ON alunos.id_turma=turmas.id_turma GROUP BY nome_curso;
+-- relacionamento entre módulos e turmas
+SELECT turmas.id_turma, modulo.nome as 'módulo' FROM turmas
+INNER JOIN curso ON curso.id_curso=turmas.id_curso
+INNER JOIN modulo ON modulo.id_curso=curso.id_curso ORDER BY turmas.id_turma;
